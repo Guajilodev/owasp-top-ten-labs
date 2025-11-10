@@ -1,0 +1,35 @@
+
+services:
+  db:
+    container_name: owasp-db
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: owasp_labs
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: rootpassword
+    volumes:
+      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+      - mysql_data:/var/lib/mysql
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uuser", "-ppassword"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  web:
+    container_name: owasp-web
+    build:
+      context: ./php
+    ports:
+      - "8081:80"
+    volumes:
+      - ./src:/var/www/html
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  mysql_data:

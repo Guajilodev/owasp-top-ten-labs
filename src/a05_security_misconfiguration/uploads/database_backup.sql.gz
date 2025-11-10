@@ -1,0 +1,5 @@
+-- Este es un falso backup de base de datos.
+-- En un escenario real, este archivo podría contener información sensible de los usuarios.
+
+INSERT INTO users (username, password, email) VALUES ('alice', 'password123', 'alice@example.com');
+INSERT INTO users (username, password, email) VALUES ('bob', 'password456', 'bob@example.com');

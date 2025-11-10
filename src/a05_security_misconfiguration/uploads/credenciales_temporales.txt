@@ -1,0 +1,2 @@
+user=admin_temp
+pass=TmpP@ssw0rd!_2024
