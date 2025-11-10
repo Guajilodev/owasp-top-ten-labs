@@ -74,5 +74,14 @@ if (isset($_COOKIE['user_prefs'])) {
         </div>
 
     </div>
+    
+    <footer class="text-center mt-5">
+        <p class="mt-3">
+            <small>
+                Created by <a href="https://x.com/guajilodev" target="_blank">@guajilodev</a> | 
+                <a href="https://github.com/Guajilodev/owasp-top-ten-labs" target="_blank">GitHub Repository</a>
+            </small>
+        </p>
+    </footer>
 </body>
 </html>
