@@ -29,6 +29,14 @@
                 <p class="mb-1">El siguiente enlace lleva a un directorio <code>/uploads</code> que no tiene un archivo de índice, exponiendo su contenido.</p>
                 <a href="uploads/" class="btn btn-warning mt-2">Ver Directorio sin Índice</a>
             </div>
+
+            <div class="list-group-item flex-column align-items-start mt-4">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">3. Subida de Archivos con Blacklist Mal Configurada</h5>
+                </div>
+                <p class="mb-1">El componente de subida de archivos usa una blacklist de extensiones para bloquear archivos peligrosos. Una configuración correcta usaría una whitelist de extensiones permitidas.</p>
+                <a href="upload_form.php" class="btn btn-warning mt-2">Ir al Formulario de Subida</a>
+            </div>
         </div>
 
         <div class="alert alert-info mt-4">
@@ -36,6 +44,7 @@
             <ol>
                 <li>Haz clic en "Provocar Error de BD" y analiza la información que se filtra. ¿Qué puedes averiguar sobre la base de datos y el servidor?</li>
                 <li>Haz clic en "Ver Directorio sin Índice". ¿Qué archivos encuentras? ¿Contienen información sensible? En un pentest real, los atacantes usan escáneres automáticos para encontrar estos directorios expuestos.</li>
+                <li>Haz clic en "Ir al Formulario de Subida" e intenta subir un archivo PHP usando doble extensión (<code>shell.php.jpg</code>) o manipulando el MIME type.</li>
             </ol>
         </div>
 

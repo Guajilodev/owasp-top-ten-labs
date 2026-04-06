@@ -28,33 +28,33 @@
                 </div>
                 <p class="mb-1">Laboratorio que demuestra el uso de funciones de hash débiles (MD5) para el almacenamiento de contraseñas.</p>
             </a>
-            <a href="/a03_injection_xss/" class="list-group-item list-group-item-action">
+            <a href="/a03_injection/" class="list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">A03: Injection (XSS)</h5>
+                    <h5 class="mb-1">A03: Injection (SQL Injection)</h5>
                     <small class="text-success">Implementado</small>
                 </div>
-                <p class="mb-1">Laboratorio que demuestra una vulnerabilidad de Cross-Site Scripting (XSS) Almacenado en un libro de visitas.</p>
+                <p class="mb-1">Buscador de productos vulnerable a inyección SQL por concatenación directa del input del usuario en la query.</p>
             </a>
-            <a href="/a04_lfi/" class="list-group-item list-group-item-action">
+            <a href="/a04_insecure_design/" class="list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">A04: Insecure Design (LFI)</h5>
+                    <h5 class="mb-1">A04: Insecure Design</h5>
                     <small class="text-success">Implementado</small>
                 </div>
-                <p class="mb-1">Laboratorio que demuestra una vulnerabilidad de Inclusión Local de Archivos (LFI) como ejemplo de un diseño inseguro.</p>
+                <p class="mb-1">Tienda online con fallo de diseño: el precio se envía desde el cliente en vez de validarse en el servidor.</p>
             </a>
             <a href="/a05_security_misconfiguration/" class="list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1">A05: Security Misconfiguration</h5>
                     <small class="text-success">Implementado</small>
                 </div>
-                <p class="mb-1">Demuestra varios fallos de configuración: errores detallados, listado de directorios y archivos sensibles expuestos.</p>
+                <p class="mb-1">Demuestra varios fallos de configuración: errores detallados, listado de directorios, archivos sensibles expuestos y subida de archivos con blacklist mal configurada.</p>
             </a>
             <a href="/a06_vulnerable_components/" class="list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1">A06: Vulnerable and Outdated Components</h5>
                     <small class="text-success">Implementado</small>
                 </div>
-                <p class="mb-1">Demuestra cómo un componente de subida de archivos vulnerable puede ser explotado para cargar archivos maliciosos.</p>
+                <p class="mb-1">Demuestra cómo una librería de sanitización desactualizada con bypasses conocidos permite ejecutar código malicioso.</p>
             </a>
             <a href="/a07_auth_failures/" class="list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-between">

@@ -32,24 +32,6 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header"><h4>Registrar Nuevo Usuario</h4></div>
-                    <div class="card-body">
-                        <form action="register.php" method="POST">
-                            <div class="mb-3">
-                                <label for="reg-username" class="form-label">Usuario</label>
-                                <input type="text" class="form-control" id="reg-username" name="username" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="reg-password" class="form-label">Contraseña</label>
-                                <input type="password" class="form-control" id="reg-password" name="password" required>
-                            </div>
-                            <button type="submit" class="btn btn-secondary">Registrar</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <?php if (isset($_SESSION['login_message'])): ?>

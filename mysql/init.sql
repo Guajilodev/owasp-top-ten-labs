@@ -50,16 +50,25 @@ INSERT INTO users_crypto (username, md5_password) VALUES
 ('testuser', '5f4dcc3b5aa765d61d8327deb882cf99'),
 ('guest', 'e10adc3949ba59abbe56e057f20f883e');
 
--- Tabla para el laboratorio A03: Injection (XSS)
-CREATE TABLE IF NOT EXISTS comments (
+-- Tabla para el laboratorio A03: Injection (SQL Injection)
+CREATE TABLE IF NOT EXISTS products (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    author VARCHAR(50) NOT NULL,
-    content TEXT NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    name VARCHAR(100) NOT NULL,
+    description TEXT,
+    price DECIMAL(10,2) NOT NULL,
+    stock INT NOT NULL DEFAULT 0
 );
 
--- Insertar un comentario de ejemplo
-INSERT INTO comments (author, content) VALUES ('Alice', '¡Hola! Este es el primer comentario. ¡Espero que este libro de visitas sea seguro!');
+-- Productos de ejemplo para el buscador vulnerable
+INSERT INTO products (name, description, price, stock) VALUES
+('Laptop ProMax 15', 'Laptop de alto rendimiento con 16GB RAM y 512GB SSD', 1299.99, 15),
+('Teclado Mecánico RGB', 'Teclado mecánico con switches Cherry MX Blue', 89.99, 50),
+('Monitor UltraWide 34"', 'Monitor curvo 34 pulgadas 144Hz', 549.99, 8),
+('Mouse Inalámbrico', 'Mouse ergonómico con sensor óptico 16000 DPI', 45.99, 120),
+('Auriculares Noise Cancel', 'Auriculares over-ear con cancelación activa de ruido', 199.99, 25),
+('Webcam HD 1080p', 'Cámara web con micrófono integrado y autoenfoque', 69.99, 40),
+('Hub USB-C 7 en 1', 'Adaptador multipuerto con HDMI, USB 3.0 y lector SD', 34.99, 75),
+('SSD Externo 1TB', 'Disco de estado sólido portátil USB 3.2', 109.99, 30);
 
 -- Tabla para el laboratorio A07: Identification and Authentication Failures
 CREATE TABLE IF NOT EXISTS users_auth (
