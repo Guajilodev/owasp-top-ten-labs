@@ -15,28 +15,27 @@ This platform provides hands-on experience with real-world vulnerabilities in a 
 
 ## 🏆 Features
 
-- **Interactive Labs**: Real-time toggling between vulnerable and secure code
 - **10 Complete Vulnerability Categories**: Full coverage of OWASP Top 10 (2021)
 - **Realistic Scenarios**: Practical examples with real-world data
 - **Educational Focus**: Detailed explanations and prevention strategies
 - **Dockerized Environment**: Easy setup with consistent environment
 - **Step-by-Step Guides**: Comprehensive exploitation instructions
-- **Security Framework Mapping**: Links to MITRE ATT&CK and CWE classifications
+- **No Data Persistence**: Labs don't store user-generated data, keeping the environment clean
 
 ## 🛡️ OWASP Top 10 Categories Covered
 
 This platform includes labs for all 10 categories of the OWASP Top 10 (2021):
 
-1. **[A01:2021 - Broken Access Control](src/a01_broken_access_control/)** (IDOR)
-2. **[A02:2021 - Cryptographic Failures](src/a02_cryptographic_failures/)** 
-3. **[A03:2021 - Injection (XSS)](src/a03_injection_xss/)** (SQL Injection, XSS)
-4. **[A04:2021 - Insecure Design](src/a04_lfi/)** (LFI)
-5. **[A05:2021 - Security Misconfiguration](src/a05_security_misconfiguration/)** (Directory listing, verbose errors)
-6. **[A06:2021 - Vulnerable and Outdated Components](src/a06_vulnerable_components/)** (File upload bypass)
-7. **[A07:2021 - Identification and Authentication Failures](src/a07_auth_failures/)** (Brute force)
-8. **[A08:2021 - Software and Data Integrity Failures](src/a08_integrity_failures/)** (Insecure deserialization)
-9. **[A09:2021 - Security Logging and Monitoring Failures](src/a09_logging_failures/)** (Insufficient logging)
-10. **[A10:2021 - Server-Side Request Forgery](src/a10_ssrf/)** (SSRF)
+1. **[A01:2021 - Broken Access Control](src/a01_broken_access_control/)** — IDOR (Insecure Direct Object Reference)
+2. **[A02:2021 - Cryptographic Failures](src/a02_cryptographic_failures/)** — MD5 password hashing without salt
+3. **[A03:2021 - Injection](src/a03_injection/)** — SQL Injection via direct query concatenation
+4. **[A04:2021 - Insecure Design](src/a04_insecure_design/)** — Client-side price manipulation (business logic flaw)
+5. **[A05:2021 - Security Misconfiguration](src/a05_security_misconfiguration/)** — Verbose errors, directory listing, file upload blacklist bypass
+6. **[A06:2021 - Vulnerable and Outdated Components](src/a06_vulnerable_components/)** — Outdated HTML sanitizer library with known bypasses
+7. **[A07:2021 - Identification and Authentication Failures](src/a07_auth_failures/)** — Brute force without rate limiting
+8. **[A08:2021 - Software and Data Integrity Failures](src/a08_integrity_failures/)** — Insecure deserialization via cookies
+9. **[A09:2021 - Security Logging and Monitoring Failures](src/a09_logging_failures/)** — Insufficient logging and exposed log files
+10. **[A10:2021 - Server-Side Request Forgery](src/a10_ssrf/)** — Unvalidated URL fetching
 
 ## 🔧 Prerequisites
 
@@ -68,18 +67,23 @@ This platform includes labs for all 10 categories of the OWASP Top 10 (2021):
 
 ### Basic Navigation
 - Browse through the different vulnerability categories from the main index
-- Each lab includes both vulnerable and secure implementations
-- Use the toggle button to switch between modes
+- Each lab includes a pentesting scenario with step-by-step instructions
 - Follow the guided exercises in each section
 
-### User Accounts (for labs that require authentication)
-- `alice` / `password123`
-- `bob` / `password123`
-- `admin` / `admin`
+### Test Credentials
 
-### Switching Modes
-- **Vulnerable Mode**: Demonstrates insecure code and allows exploitation
-- **Secure Mode**: Shows properly secured implementation
+**A02 - Cryptographic Failures** (MD5 hashes to crack):
+- `admin` : `21232f297a57a5a743894a0e4a801fc3`
+- `testuser` : `5f4dcc3b5aa765d61d8327deb882cf99`
+- `guest` : `e10adc3949ba59abbe56e057f20f883e`
+
+**A07 - Authentication Failures** (brute force targets):
+- `user1` / `password`
+- `admin` / `123456`
+- `test` / `test`
+
+**A01 - Broken Access Control** (IDOR):
+- Session is hardcoded as user `alice` (user_id=1). Try accessing notes from other users.
 
 ## 🎯 Exploitation Guide
 
