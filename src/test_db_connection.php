@@ -1,8 +1,8 @@
 <?php
-$host = 'db';
-$dbname = 'owasp_labs';
-$user = 'user';
-$pass = 'password';
+$host = getenv('DB_HOST') ?: 'db';
+$dbname = getenv('DB_NAME') ?: 'owasp_labs';
+$user = getenv('DB_USER') ?: 'owasp_user';
+$pass = getenv('DB_PASSWORD') ?: '';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $user, $pass);
