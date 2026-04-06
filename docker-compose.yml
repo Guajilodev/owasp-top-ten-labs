@@ -4,17 +4,34 @@ services:
     container_name: owasp-db
     image: mariadb:10.11
     environment:
-      MYSQL_DATABASE: owasp_labs
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
-      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
     volumes:
-      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
-      - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf:ro
       - mysql_data:/var/lib/mysql
     restart: unless-stopped
+    networks:
+      - backend
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    cap_add:
+      - SETUID
+      - SETGID
+      - DAC_OVERRIDE
+      - CHOWN
+    deploy:
+      resources:
+        limits:
+          memory: 512m
+          cpus: '0.5'
+    pids_limit: 100
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uuser", "-ppassword"]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u${DB_USER}", "-p${DB_PASSWORD}"]
       interval: 5s
       timeout: 5s
       retries: 10
@@ -24,12 +41,35 @@ services:
     build:
       context: ./php
     ports:
-      - "8081:80"
+      - "127.0.0.1:8081:80"
     volumes:
       - ./src:/var/www/html
     depends_on:
       db:
         condition: service_healthy
+    networks:
+      - backend
+      - frontend
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_BIND_SERVICE
+      - SETUID
+      - SETGID
+    deploy:
+      resources:
+        limits:
+          memory: 256m
+          cpus: '0.5'
+    pids_limit: 50
+    restart: unless-stopped
+
+networks:
+  backend:
+    internal: true
+  frontend:
 
 volumes:
   mysql_data:
