@@ -2,7 +2,7 @@
 services:
   db:
     container_name: owasp-db
-    image: mysql:8.0
+    image: mariadb:10.11
     environment:
       MYSQL_DATABASE: owasp_labs
       MYSQL_USER: user
