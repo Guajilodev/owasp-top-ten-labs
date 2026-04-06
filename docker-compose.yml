@@ -29,7 +29,7 @@ services:
         limits:
           memory: 512m
           cpus: '0.5'
-    pids_limit: 100
+          pids: 100
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u${DB_USER}", "-p${DB_PASSWORD}"]
       interval: 5s
@@ -63,7 +63,7 @@ services:
         limits:
           memory: 256m
           cpus: '0.5'
-    pids_limit: 50
+          pids: 50
     restart: unless-stopped
 
 networks:
