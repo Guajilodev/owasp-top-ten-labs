@@ -88,6 +88,16 @@ Los controles de Docker buscan reducir la exposición del entorno: la aplicació
 
 Este proyecto se distribuye bajo la licencia [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)](LICENSE). El uso comercial está prohibido y la distribución pública de versiones modificadas requiere autorización previa, conforme a los términos del archivo de licencia.
 
+## Disclaimer legal
+
+Este software se proporciona "tal cual", sin garantías de ningún tipo. El autor no es responsable de:
+
+- Uso indebido del conocimiento adquirido con estos laboratorios.
+- Daños causados por ejecutar el software sin las protecciones y el aislamiento adecuados.
+- Consecuencias legales de atacar sistemas sin autorización.
+
+**Atacar sistemas sin autorización explícita es ilegal.** Estos laboratorios existen para practicar en un entorno controlado, autorizado y legal.
+
 ## Agradecimientos
 
 El proyecto fue desarrollado con asistencia de flujo de trabajo y herramientas de [Gentleman Programming](https://github.com/Gentleman-Programming) y [Gentle AI](https://github.com/Gentleman-Programming/gentle-ai). Este reconocimiento se limita a dicha asistencia y no implica patrocinio, respaldo, afiliación ni propiedad del proyecto por parte de dichas organizaciones.
