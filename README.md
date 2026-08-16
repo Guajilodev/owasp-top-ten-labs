@@ -1,139 +1,95 @@
-# OWASP Top Ten Labs - Educational Cybersecurity Platform
+# OWASP Top Ten Labs
 
-[![License](https://img.shields.io/badge/license-CC%20BY--NC--ND%204.0-blue.svg)](LICENSE)
-[![Docker](https://img.shields.io/badge/Docker-Supported-blue)](docker-compose.yml)
-[![PHP](https://img.shields.io/badge/PHP-8.2-777BB4)](https://www.php.net/)
-[![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1)](https://www.mysql.com/)
+Plataforma educativa para comprender y practicar vulnerabilidades web del **OWASP Top 10 (2021)** en un entorno local y controlado. Cada laboratorio presenta una categoría, un escenario intencionalmente vulnerable y material para estudiar su identificación y mitigación.
 
-Educational platform for learning and practicing OWASP Top 10 vulnerabilities in a controlled environment. Created by guajilodev for cybersecurity education and research purposes.
+> [!WARNING]
+> **Uso exclusivo para formación, investigación autorizada y práctica local.** Este repositorio contiene vulnerabilidades deliberadas. No lo despliegues en producción, no lo expongas a redes públicas y no lo uses contra sistemas, datos o cuentas sin autorización explícita. Quien lo utilice es responsable de aislar el entorno y cumplir las leyes, políticas y autorizaciones aplicables.
 
-## 🎯 Project Overview
+## Inicio rápido
 
-OWASP Top Ten Labs is an educational platform designed to help developers, security professionals, and students understand, identify, and mitigate common web application security vulnerabilities as defined by the [OWASP Top 10](https://owasp.org/www-project-top-ten/) standard.
+1. Crea tu archivo de configuración local:
 
-This platform provides hands-on experience with real-world vulnerabilities in a safe, isolated environment. Each lab demonstrates specific attack techniques and corresponding mitigation strategies.
-
-## 🏆 Features
-
-- **10 Complete Vulnerability Categories**: Full coverage of OWASP Top 10 (2021)
-- **Realistic Scenarios**: Practical examples with real-world data
-- **Educational Focus**: Detailed explanations and prevention strategies
-- **Dockerized Environment**: Easy setup with consistent environment
-- **Step-by-Step Guides**: Comprehensive exploitation instructions
-- **No Data Persistence**: Labs don't store user-generated data, keeping the environment clean
-
-## 🛡️ OWASP Top 10 Categories Covered
-
-This platform includes labs for all 10 categories of the OWASP Top 10 (2021):
-
-1. **[A01:2021 - Broken Access Control](src/a01_broken_access_control/)** — IDOR (Insecure Direct Object Reference)
-2. **[A02:2021 - Cryptographic Failures](src/a02_cryptographic_failures/)** — MD5 password hashing without salt
-3. **[A03:2021 - Injection](src/a03_injection/)** — SQL Injection via direct query concatenation
-4. **[A04:2021 - Insecure Design](src/a04_insecure_design/)** — Client-side price manipulation (business logic flaw)
-5. **[A05:2021 - Security Misconfiguration](src/a05_security_misconfiguration/)** — Verbose errors, directory listing, file upload blacklist bypass
-6. **[A06:2021 - Vulnerable and Outdated Components](src/a06_vulnerable_components/)** — Outdated HTML sanitizer library with known bypasses
-7. **[A07:2021 - Identification and Authentication Failures](src/a07_auth_failures/)** — Brute force without rate limiting
-8. **[A08:2021 - Software and Data Integrity Failures](src/a08_integrity_failures/)** — Insecure deserialization via cookies
-9. **[A09:2021 - Security Logging and Monitoring Failures](src/a09_logging_failures/)** — Insufficient logging and exposed log files
-10. **[A10:2021 - Server-Side Request Forgery](src/a10_ssrf/)** — Unvalidated URL fetching
-
-## 🔧 Prerequisites
-
-- Docker Engine (version 20.10 or higher)
-- Docker Compose v2
-- At least 2GB RAM
-- 5GB free disk space
-
-## 🚀 Setup and Installation
-
-1. **Clone the repository:**
    ```bash
-   git clone https://github.com/Guajilodev/owasp-top-ten-labs.git
-   cd owasp-top-ten-labs
+   cp .env.example .env
    ```
 
-2. **Start the Docker containers:**
+2. Revisa y reemplaza los valores de ejemplo en `.env`.
+
+3. Construye e inicia los servicios:
+
    ```bash
-   docker-compose up -d
+   docker compose up -d --build
    ```
 
-3. **Access the platform:**
-   Open your browser and navigate to `http://localhost:8081`
+4. Abre [http://localhost:8081](http://localhost:8081).
 
-4. **Wait for initialization:**
-   The database will be automatically populated. This may take 1-2 minutes.
+Para detener el entorno:
 
-## 📚 Usage Guide
+```bash
+docker compose down
+```
 
-### Basic Navigation
-- Browse through the different vulnerability categories from the main index
-- Each lab includes a pentesting scenario with step-by-step instructions
-- Follow the guided exercises in each section
+## Qué incluye
 
-### Test Credentials
+| Área | Contenido |
+| --- | --- |
+| Estándar | Las diez categorías de OWASP Top 10 (2021) |
+| Aplicación | PHP 8.2 con Apache |
+| Base de datos | MariaDB 10.11 |
+| Ejecución | Servicios definidos con Docker Compose |
+| Acceso local | La aplicación se publica en `127.0.0.1:8081` |
 
-**A02 - Cryptographic Failures** (MD5 hashes to crack):
-- `admin` : `21232f297a57a5a743894a0e4a801fc3`
-- `testuser` : `5f4dcc3b5aa765d61d8327deb882cf99`
-- `guest` : `e10adc3949ba59abbe56e057f20f883e`
+## Laboratorios OWASP Top 10 (2021)
 
-**A07 - Authentication Failures** (brute force targets):
-- `user1` / `password`
-- `admin` / `123456`
-- `test` / `test`
+| Categoría | Escenario principal |
+| --- | --- |
+| [A01: Control de acceso roto](src/a01_broken_access_control/) | IDOR (referencia directa insegura a objetos) |
+| [A02: Fallos criptográficos](src/a02_cryptographic_failures/) | Contraseñas con hash MD5 sin sal |
+| [A03: Inyección](src/a03_injection/) | Inyección SQL por concatenación directa de consultas |
+| [A04: Diseño inseguro](src/a04_insecure_design/) | Manipulación de precios en el cliente |
+| [A05: Configuración de seguridad incorrecta](src/a05_security_misconfiguration/) | Errores detallados, listado de directorios y evasión de listas negras de carga |
+| [A06: Componentes vulnerables y desactualizados](src/a06_vulnerable_components/) | Biblioteca sanitizadora HTML desactualizada con evasiones conocidas |
+| [A07: Fallos de identificación y autenticación](src/a07_auth_failures/) | Fuerza bruta sin limitación de intentos |
+| [A08: Fallos de integridad de software y datos](src/a08_integrity_failures/) | Deserialización insegura mediante cookies |
+| [A09: Fallos de registro y monitoreo de seguridad](src/a09_logging_failures/) | Registro insuficiente y archivos de registro expuestos |
+| [A10: Falsificación de solicitudes del lado del servidor](src/a10_ssrf/) | Obtención de URL sin validación |
 
-**A01 - Broken Access Control** (IDOR):
-- Session is hardcoded as user `alice` (user_id=1). Try accessing notes from other users.
+## Requisitos
 
-## 🎯 Exploitation Guide
+- Docker Engine con Docker Compose disponible como `docker compose`.
+- Un navegador para acceder a la aplicación local.
 
-For comprehensive exploitation techniques using Kali Linux tools, see: [EXPLOTACION_KALI.md](EXPLOTACION_KALI.md)
+## Configuración del entorno
 
-This detailed guide covers:
-- **Manual exploitation** techniques for each vulnerability
-- **Automated tools** usage (Burp Suite, SQLMap, Hydra, etc.)
-- **Advanced techniques** like log poisoning, reverse shells
-- **Kali Linux tools** integration for each attack type
-- **Evidence collection** and analysis methods
+El archivo [`.env.example`](.env.example) define las variables requeridas por la base de datos:
 
-**Tools covered in the exploitation guide:**
-- [Burp Suite](https://portswigger.net/burp) - Web vulnerability scanner and interceptor
-- [SQLMap](http://sqlmap.org/) - Automatic SQL injection tool
-- [Hydra](https://github.com/vanhauser-thc/thc-hydra) - Password cracker
-- [Nikto](https://cirt.net/Nikto2) - Web server scanner
-- [Dirb/Dirbuster](http://dirb.sourceforge.net/) - Web content scanner
-- [Hashcat](https://hashcat.net/hashcat/) - Password recovery tool
-- [John the Ripper](https://www.openwall.com/john/) - Password cracker
-- [wfuzz](https://github.com/xmendez/wfuzz) - Web application fuzzer
-- [cURL](https://curl.se/) - Command line data transfer tool
-- [Metasploit Framework](https://www.metasploit.com/) - Penetration testing framework
+```dotenv
+DB_NAME=owasp_labs
+DB_USER=owasp_user
+DB_PASSWORD=CHANGE_ME
+DB_ROOT_PASSWORD=CHANGE_ME_ROOT
+```
 
-## 🚨 Security Warning
+No publiques el archivo `.env` ni reutilices sus credenciales fuera de este entorno educativo.
 
-> ⚠️ **WARNING**: This repository contains intentional security vulnerabilities for educational purposes. These vulnerabilities can be exploited to gain unauthorized access, compromise data, or otherwise damage systems. DO NOT:
-> - Deploy this code in any production environment
-> - Use this on systems without explicit authorization
-> - Access this platform from public networks without proper isolation
+## Material de práctica
 
-The platform is designed to be accessed only locally for educational purposes.
+- Navega desde la página principal hacia la categoría que quieras estudiar.
+- Lee el escenario y realiza los ejercicios únicamente dentro de esta instancia local.
+- Consulta [EXPLOTACION_KALI.md](EXPLOTACION_KALI.md) para técnicas de explotación y herramientas de Kali Linux asociadas a los laboratorios.
 
-## 🤝 Contributing
+## Límites de seguridad
 
-Contributions are welcome! Please read our contribution guidelines before submitting pull requests. Keep in mind that the purpose of this project is educational, so any contributions should maintain the educational value while improving the learning experience.
+Los controles de Docker buscan reducir la exposición del entorno: la aplicación se enlaza solo a `127.0.0.1`, la red de base de datos es interna y los contenedores tienen restricciones de privilegios. Estos controles **no convierten los laboratorios en software seguro para producción**; las vulnerabilidades son parte intencional del material didáctico.
 
-## 📄 License
+## Licencia
 
-This project is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0) license. See the [LICENSE](LICENSE) file for details.
+Este proyecto se distribuye bajo la licencia [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)](LICENSE). El uso comercial está prohibido y la distribución pública de versiones modificadas requiere autorización previa, conforme a los términos del archivo de licencia.
 
-Commercial use is strictly prohibited. This project is available for educational and research purposes only.
+## Agradecimientos
 
-## 🙏 Acknowledgments
+El proyecto fue desarrollado con asistencia de flujo de trabajo y herramientas de [Gentleman Programming](https://github.com/Gentleman-Programming) y [Gentle AI](https://github.com/Gentleman-Programming/gentle-ai). Este reconocimiento se limita a dicha asistencia y no implica patrocinio, respaldo, afiliación ni propiedad del proyecto por parte de dichas organizaciones.
 
-- [OWASP Foundation](https://owasp.org/) for the Top 10 standard
-- [MITRE Corporation](https://cwe.mitre.org/) for the CWE classification
-- The cybersecurity community for continuous knowledge sharing
-- Educational institutions that promote secure coding practices
-
-## 📞 Support
-
-For questions about this educational platform, please open an issue on the GitHub repository.
+- [OWASP Foundation](https://owasp.org/) por el estándar OWASP Top 10.
+- [MITRE Corporation](https://cwe.mitre.org/) por la clasificación CWE.
+- La comunidad de ciberseguridad y las instituciones educativas que promueven el desarrollo seguro.
