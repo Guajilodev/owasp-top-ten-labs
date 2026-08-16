@@ -31,7 +31,7 @@ Para detener el entorno:
 docker compose down
 ```
 
-## Qué incluye
+## ¿Qué incluye?
 
 | Área | Contenido |
 | --- | --- |
@@ -105,3 +105,5 @@ El proyecto fue desarrollado con asistencia de flujo de trabajo y herramientas d
 - [OWASP Foundation](https://owasp.org/) por el estándar OWASP Top 10.
 - [MITRE Corporation](https://cwe.mitre.org/) por la clasificación CWE.
 - La comunidad de ciberseguridad y las instituciones educativas que promueven el desarrollo seguro.
+
+Creado por @guajilodev | OWASP Top 10 Labs
