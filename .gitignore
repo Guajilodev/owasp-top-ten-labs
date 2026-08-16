@@ -1,2 +1,4 @@
 .env
 *.log
+.atl/
+src/a09_logging_failures/log.txt
