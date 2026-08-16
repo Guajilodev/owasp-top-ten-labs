@@ -2,6 +2,8 @@
 
 Plataforma educativa para comprender y practicar vulnerabilidades web del **OWASP Top 10 (2021)** en un entorno local y controlado. Cada laboratorio presenta una categoría, un escenario intencionalmente vulnerable y material para estudiar su identificación y mitigación.
 
+**Demo en vivo:** [https://labot10.guajilodev.com/](https://labot10.guajilodev.com/)
+
 > [!WARNING]
 > **Uso exclusivo para formación, investigación autorizada y práctica local.** Este repositorio contiene vulnerabilidades deliberadas. No lo despliegues en producción, no lo expongas a redes públicas y no lo uses contra sistemas, datos o cuentas sin autorización explícita. Quien lo utilice es responsable de aislar el entorno y cumplir las leyes, políticas y autorizaciones aplicables.
 
