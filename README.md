@@ -106,4 +106,4 @@ El proyecto fue desarrollado con asistencia de flujo de trabajo y herramientas d
 - [MITRE Corporation](https://cwe.mitre.org/) por la clasificación CWE.
 - La comunidad de ciberseguridad y las instituciones educativas que promueven el desarrollo seguro.
 
-Creado por @guajilodev | OWASP Top 10 Labs
+Creado por [@guajilodev](https://github.com/guajilodev) | OWASP Top 10 Labs
